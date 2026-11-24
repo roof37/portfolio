@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
-  <title>Blog - Diego Osborn</title>
+  <title>Blog - Ralph Halabi</title>
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../scope.css">
 </head>
-<body class="sub-page">
+<body>
 
   <!-- Apply dark mode before paint to prevent flash -->
   <script>
@@ -18,38 +19,22 @@
     }
   </script>
 
-  <main>
+  <div id="wrapper"><main>
     <!-- Sub-page header with back link and theme toggle -->
-    <header class="sub-header">
-      <a href="../" class="back-link">← Back to home</a>
-      
-      <button id="theme-toggle" aria-label="theme switch">
-        <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
-        <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
-      </button>
-    </header>
+    <div id="site-header"></div>
+    <script src="../site-header.js"></script>
 
     <h1 class="page-title">Blog Posts</h1>
 
     <div class="post-list">
-      <a class="post-link" href="recap-half-year/">
-        <span>Life Since Graduation</span>
-        <span class="date">11-08-26</span>
-      </a>
-      <!-- <a class="post-link" href="bda-baseball-ch2/">
-        <span>BDA, Chapter 2: Single-Parameter Models</span>
-        <span class="date">07-08-26</span>
-      </a> -->
-      <a class="post-link" href="bda-baseball-ch1/">
-        <span>BDA, Chapter 1: Probability and Inference</span>
-        <span class="date">07-01-2026</span>
-      </a>
-      <a class="post-link" href="about-me/">
-        <span>A Little About Me</span>
-        <span class="date">06-17-2026</span>
-      </a>
-      <!-- 
-        To add a new post, copy the <a> block above and update:
+      <div class="empty-state"><span class="tag">Coming soon</span><h3>No posts yet</h3><p>I'll share write-ups on sports analytics here. Check back soon.</p></div>
+      <!--
+        To add a new post, create posts/my-post/index.html, then add a block like:
+        <a class="post-link" href="my-post/">
+          <span>Post title</span>
+          <span class="date">MM-DD-YYYY</span>
+        </a>
+        and update:
         1. href — the folder name for the post (e.g. "bda-baseball-ch2/")
         2. The title text
         3. The date
@@ -57,7 +42,7 @@
       -->
     </div>
 
-  </main>
+  </main></div>
 
   <script>
     // --------------------------

@@ -5,24 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacts</title>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../scope.css">
 </head>
 <body>
-  <h1>Contact</h1>
-  <form action="mailto:YOUR_EMAIL_ADDRESS" method="POST" enctype="text/plain">
-      <label>
-          Email:
-          <input type="email" name="email" required>
-      </label>
-      <label>
-          Subject:
-          <input type="text" name="subject" required>
-      </label>
-      <label>
-          Message:
-          <textarea name="body" rows="5" required></textarea>
-      </label>
-      <button>Submit</button>
-  </form>
-  <script type="module" src="../global.js"></script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../site-header.js"></script>
+    <h1 class="page-title">Contact</h1>
+    <p class="page-sub">Send me a note and your email app will open with it ready to send.</p>
+    <form id="contact-form" class="contact-form">
+      <label>Your email<input type="email" name="email" required autocomplete="email"></label>
+      <label>Subject<input type="text" name="subject" required></label>
+      <label>Message<textarea name="body" rows="6" required></textarea></label>
+      <button type="submit" class="btn">Send message</button>
+    </form>
+  </main></div>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const body = f.get('body') + '\n\nReply to: ' + f.get('email');
+      location.href = 'mailto:ralphhalabi1@gmail.com?subject=' + encodeURIComponent(f.get('subject')) + '&body=' + encodeURIComponent(body);
+    });
+  </script>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    if ((theme === 'dark') || (!theme && matchMedia("(prefers-color-scheme: dark)").matches)) document.body.classList.add('dark');
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>

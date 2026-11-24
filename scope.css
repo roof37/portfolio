@@ -1,0 +1,166 @@
+/* SCOPE design system v2 (Scoreboard Pitch) layered over style.css. Delete the <link>s to undo. */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+body{
+  --font:'IBM Plex Sans',-apple-system,Helvetica,sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --bg:#e7e8eb; --surface:#fff; --subtle:#eff0f2; --text:#111113; --text-pale:#66666b;
+  --hairline:#e4e5e8; --border:rgba(17,17,19,.04); --primary:#00754a; --primary-pale:#d9f3e6; --primary-decoration:#d9f3e6;
+  --shadow-1:0 1px 2px rgba(17,17,19,.05),0 4px 14px rgba(17,17,19,.05); --shadow-2:0 8px 28px rgba(17,17,19,.10);
+  font-family:var(--font); background:var(--bg); color:var(--text);
+}
+body.dark{--bg:#000;--surface:#1f1f22;--subtle:#303035;--text:#f2f2f2;--text-pale:#8a8a90;--hairline:#323237;
+  --border:rgba(255,255,255,.07);--primary:#3ddc8f;--primary-pale:#12382a;--primary-decoration:#12382a;--shadow-1:none;--shadow-2:none}
+#info #name{font-size:clamp(2.2rem,8vw,3.5rem);font-weight:500;letter-spacing:-.02em;line-height:1.05}
+#info #bio{color:var(--text-pale);font-size:15px;font-weight:400;margin-top:.6em}
+/* floating pill nav */
+#links{background:var(--surface);border:1px solid var(--border);border-radius:32px;box-shadow:var(--shadow-1);padding:6px 10px;margin:1.6em 0}
+#links a,#links button{border-radius:999px!important;font-weight:600;font-size:13px;background:transparent!important;color:var(--text-pale)!important;box-shadow:none}
+#links #left a[aria-current],#links a:hover,#links button:hover{color:var(--text)!important;background:var(--subtle)!important}
+/* section labels: 11 / 600 / +0.14em */
+.prose h2,h2{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-pale);margin:2.4em 0 .8em}
+h1,h3,.prose h1{font-weight:500;letter-spacing:-.02em}
+/* cards: 24px radius, hairline border, soft shadow */
+.exp,.award,.project-entry,.project-card,.post-link{background:var(--surface)!important;border:1px solid var(--border)!important;
+  border-radius:24px!important;box-shadow:var(--shadow-1)!important;padding:20px 24px;margin:0 0 14px}
+.project-card:hover,.post-link:hover{box-shadow:var(--shadow-2)!important;transform:translateY(-2px)}
+.exp .title{font-weight:600;font-size:16px}
+.exp-head{align-items:baseline}
+.date,.card-date{font-family:var(--font)!important;font-size:13px;font-weight:400;background:transparent!important;color:var(--text-pale)!important;padding:0;border-radius:0}
+/* tags / pills */
+.tag,.link-pill{border-radius:999px!important;background:var(--primary-pale)!important;color:var(--primary)!important;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px}
+.prose a{color:var(--primary);text-decoration:none;font-weight:500}.prose a:hover{text-decoration:underline}
+.prose,.exp li,.exp p{font-size:15px;line-height:1.55}
+/* no outlines: cards separate from canvas by fill alone */
+#links,.exp,.award,.project-entry,.project-card,.post-link{border:none!important;outline:none!important}
+body.dark #links,body.dark .exp,body.dark .award,body.dark .project-entry,body.dark .project-card,body.dark .post-link{box-shadow:none!important}
+/* flat page: experience / education / awards have no card, just spacing + divider */
+.exp,.award{background:transparent!important;box-shadow:none!important;border-radius:0!important;
+  padding:18px 0!important;margin:0!important;border-top:1px solid var(--hairline)!important}
+.exp:first-of-type,.award:first-of-type{border-top:none!important}
+/* only projects keep the SCOPE card */
+.project-entry,.project-card{background:var(--surface)!important;border-radius:24px!important;
+  box-shadow:var(--shadow-1)!important;padding:20px 24px!important;margin:0 0 14px!important;border:none!important}
+body.dark .project-entry,body.dark .project-card{box-shadow:none!important}
+.post-link{background:transparent!important;box-shadow:none!important;border-radius:0!important;
+  border-top:1px solid var(--hairline)!important;padding:14px 0!important;margin:0!important}
+
+/* ---------- accent layer ---------- */
+body{--accent:#00a05e;--accent-text:#00754a;--accent-tint:#d9f3e6;--yellow:#f5c518}
+body.dark{--accent:#1fbf74;--accent-text:#3ddc8f;--accent-tint:#12382a}
+/* intro band: one white layer behind the intro, gives depth without boxing entries */
+#info{padding-bottom:0}
+#brief>p:first-of-type{font-size:17px;line-height:1.5;color:var(--text)}
+/* roles in green */
+.exp .title em,.exp-head em{color:var(--accent-text);font-style:normal;font-weight:600}
+/* dates: bigger, "Present" gets live green pill */
+.date{font-size:13px!important;white-space:nowrap}
+.date.now{background:var(--accent-tint)!important;color:var(--accent-text)!important;border-radius:999px!important;padding:3px 10px!important;font-weight:600}
+/* yellow underline accent on name */
+#info #name{background:linear-gradient(var(--yellow),var(--yellow)) 0 94%/3.2ch .16em no-repeat;padding-bottom:.12em}
+/* call to action */
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:1.2em 0 0}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--accent);color:#fff!important;
+  font-weight:600;font-size:15px;text-decoration:none!important}
+.btn:hover{background:var(--accent-text);text-decoration:none!important}
+.btn.ghost{background:var(--surface);color:var(--text)!important}
+.btn.ghost:hover{background:var(--subtle)}
+/* hierarchy: section labels */
+.prose h1{font-size:12px!important;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text)!important;
+  margin:2.8em 0 .6em;display:flex;align-items:center;gap:10px}
+.prose h1::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+#info #bio{color:var(--text)!important;opacity:.7;font-size:16px}
+/* touch targets */
+#links a,#links button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0 16px}
+#links #right a,#links #right button{min-width:44px;padding:0}
+
+/* projects empty state */
+.empty-state{background:var(--surface);border-radius:24px;box-shadow:var(--shadow-1);padding:32px 28px;margin-top:1em;text-align:left}
+body.dark .empty-state{box-shadow:none}
+.empty-state h3{font-size:20px;font-weight:600;margin:.8em 0 .3em}
+.empty-state p{color:var(--text-pale);margin:0;font-size:15px}
+.empty-state a{color:var(--accent-text,#00754a);font-weight:500}
+
+/* nav: underline instead of grey pill */
+body{--nav-underline:#2f6bff}
+#links #left a{position:relative;border-radius:0!important}
+#links #left a[aria-current],#links #left a:hover{background:transparent!important}
+#links #left a::after{content:"";position:absolute;left:16px;right:16px;bottom:6px;height:2px;border-radius:2px;background:var(--nav-underline);transform:scaleX(0);transition:transform .18s ease}
+#links #left a[aria-current]::after,#links #left a:hover::after{transform:scaleX(1)}
+
+/* wider page, still with generous side margins */
+body{--max-width:1040px}
+main{padding-left:clamp(20px,5vw,48px);padding-right:clamp(20px,5vw,48px)}
+
+/* tabs */
+.tabs{display:flex;gap:8px;margin:1.8em 0 .4em;flex-wrap:wrap}
+.tab{font:inherit;font-size:14px;font-weight:600;min-height:44px;padding:0 18px;border:none;border-radius:999px;cursor:pointer;
+  background:transparent;color:var(--text-pale);transition:background .15s,color .15s}
+.tab:hover{color:var(--text);background:var(--subtle)}
+.tab[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow-1)}
+body.dark .tab[aria-selected="true"]{box-shadow:none}
+.tab:focus-visible{outline:2px solid var(--nav-underline);outline-offset:2px}
+.tab-panel[hidden]{display:none}
+.tab-panel>.exp:first-child{border-top:none!important}
+.prose h1[hidden]{display:none!important}
+
+/* pin header to the top so switching tabs never moves it */
+#wrapper{justify-content:flex-start}
+main{padding-top:clamp(2.5em,8vh,5em)}
+.tab-panel{min-height:55vh}
+#links{border-radius:8px}
+
+/* tabs: green underline instead of white pill */
+.tabs{gap:4px}
+.tab{position:relative;border-radius:0;background:transparent!important;box-shadow:none!important}
+.tab:hover{background:transparent!important;color:var(--text)}
+.tab[aria-selected="true"]{background:transparent!important;box-shadow:none!important;color:var(--text)}
+.tab::after{content:"";position:absolute;left:18px;right:18px;bottom:4px;height:3px;border-radius:3px;background:var(--accent);transform:scaleX(0);transition:transform .18s ease}
+.tab[aria-selected="true"]::after{transform:scaleX(1)}
+.tab::after{background:#f07a1a}
+
+/* hierarchy pass: tab rule, spacing, intro grouping */
+.tabs{margin:2.6em 0 1.1em!important;border-bottom:1px solid var(--hairline);gap:8px}
+.tab::after{bottom:-1px!important}
+#brief>p:nth-of-type(2){font-size:14px;color:var(--text-pale)}
+#brief>p:first-of-type{font-size:18px;line-height:1.5}
+.tabs{border-bottom-color:rgba(17,17,19,.14)}
+body.dark .tabs{border-bottom-color:rgba(255,255,255,.14)}
+
+/* tab labels line up under the nav labels (nav text is inset 26px) */
+.tabs .tab:first-child{margin-left:8px}
+
+/* ---------- subpages: resume, contacts, blog ---------- */
+.sub-page main{max-width:var(--max-width);margin:0 auto}
+.page-title{font-size:32px!important;font-weight:500;letter-spacing:-.02em;margin:1em 0 .3em}
+.page-sub{color:var(--text-pale);margin:0 0 1.6em}
+.r-label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text);margin:2.6em 0 .8em;display:flex;align-items:center;gap:10px}
+.r-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.resume-section .entry{padding:18px 0;border-top:1px solid var(--hairline)}
+.resume-section .entry:first-of-type{border-top:none}
+.entry-header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:0;font-size:16px;font-weight:600}
+.entry-dates{font-size:13px;font-weight:400;color:var(--text-pale);white-space:nowrap}
+.entry>p em{color:var(--accent-text);font-style:normal;font-weight:600;font-size:15px}
+.entry ul{margin:.6em 0 0;padding-left:1.2em}.entry li{margin:.3em 0;font-size:15px;line-height:1.55}
+.entry li::marker{color:var(--accent)}
+.button-link{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--accent);color:#fff!important;font-weight:600;text-decoration:none!important;margin-left:8px}
+.button-link:hover{background:var(--accent-text)}
+/* contact form */
+.contact-form{display:flex;flex-direction:column;gap:18px;max-width:560px}
+.contact-form label{display:flex;flex-direction:column;gap:6px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-pale)}
+.contact-form input,.contact-form textarea{font:inherit;font-size:15px;letter-spacing:0;text-transform:none;font-weight:400;color:var(--text);
+  background:var(--surface);border:1px solid var(--hairline);border-radius:12px;padding:12px 14px;min-height:44px}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--nav-underline);outline-offset:1px;border-color:transparent}
+.contact-form .btn{align-self:flex-start;border:none;cursor:pointer;font:inherit;font-weight:600;font-size:15px}
+#info #name{text-decoration:none;color:inherit}
+.exp .blurb{margin:.7em 0 0;max-width:72ch;font-size:15px;line-height:1.65;color:var(--text)}
+
+/* theme toggle lives top-right beside the name */
+#info{position:relative}
+#info #theme-toggle{position:absolute;top:0;right:0;width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;
+  border:none;border-radius:50%;background:var(--surface);color:var(--text-pale);box-shadow:var(--shadow-1);cursor:pointer}
+#info #theme-toggle:hover{color:var(--text)}
+body.dark #info #theme-toggle{box-shadow:none}
+#info #theme-toggle{top:11px;padding:0}
+#theme-toggle span,#theme-toggle svg{display:block;line-height:0}
+#theme-toggle .sun-icon,#theme-toggle .moon-icon{display:none}
+body.dark #theme-toggle .sun-icon{display:block}
+body:not(.dark) #theme-toggle .moon-icon{display:block}

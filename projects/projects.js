@@ -29,6 +29,16 @@ function renderProjectCards(projects, containerElement) {
       p.title?.startsWith('Spotify'))
   );
 
+  if (visibleProjects.length === 0) {
+    containerElement.innerHTML = `
+      <div class="empty-state">
+        <span class="tag">Coming soon</span>
+        <h3>Projects are on the way</h3>
+        <p>I'm putting together write-ups on my sports analytics work. Check back soon, or see my <a href="../resume/">resume</a> in the meantime.</p>
+      </div>`;
+    return;
+  }
+
   const html = visibleProjects.map(project => {
     // Generate tags if they exist
     const tagsHtml = project.tags && Array.isArray(project.tags) 

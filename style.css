@@ -1,34 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ============================================
-   Light mode colors (default)
+   Touchline design system tokens (light default)
    ============================================ */
 body {
-  --primary: #003278;
-  --primary-pale: #00327833;
-  --primary-decoration: #00327810;
-  --bg: #f6f8f7;
-  --text: #1c2127;
-  --text-pale: #636d79;
-  --text-decoration: #afb8c2;
-  --max-width: 720px;
-  --font: 'Times New Roman', Times, serif;
+  --primary: #0F9A5A;              /* text/link · win */
+  --primary-pale: #12A15F26;
+  --primary-decoration: #12A15F12;
+  --bg: #F4F4F4;                   /* bg/canvas */
+  --surface: #FFFFFF;              /* bg/surface */
+  --subtle: #F2F2F2;               /* bg/subtle */
+  --text: #111111;                 /* text/primary */
+  --text-pale: #737373;            /* text/secondary */
+  --text-decoration: #E3E3E3;      /* hairline borders */
+  --border: #ECECEC;
+  --brand: #12A15F;                /* brand/pitch */
+  --max-width: 760px;
+  --font: Figtree, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-size: 16px;
-  --line-height: 1.75;
+  --line-height: 1.55;
+  --shadow-1: 0 1px 2px rgba(17,17,17,.05), 0 2px 8px rgba(17,17,17,.04);
+  --shadow-2: 0 8px 28px rgba(17,17,17,.10);
 }
 
 /* ============================================
-   Dark mode colors
+   Dark mode (derived from Touchline tokens)
    ============================================ */
 body.dark {
-  --primary: #6B91C9;
-  --primary-pale: #6B91C944;
-  --primary-decoration: #6B91C912;
-  /* --bg: #0f1115; */
-  --bg: #212121;
-  --text: #c8ccd3;
-  --text-pale: #7c828c;
-  --text-decoration: #3d434d;
+  --primary: #1EC26A;
+  --primary-pale: #1EC26A33;
+  --primary-decoration: #1EC26A14;
+  --bg: #0F0F0F;
+  --surface: #1A1A1A;
+  --subtle: #242424;
+  --text: #F2F2F2;
+  --text-pale: #A3A3A3;
+  --text-decoration: #2E2E2E;
+  --border: #262626;
+  --shadow-1: none;
+  --shadow-2: 0 8px 28px rgba(0,0,0,.5);
 }
 
 /* ============================================
@@ -634,3 +645,86 @@ body.sub-page .page-title {
   margin-top: 1em;
   font-size: 0.95em;
 }
+
+/* ============================================
+   Touchline components applied to the portfolio
+   ============================================ */
+h1, h2, h3, #name { letter-spacing: -0.015em; }
+
+/* Name + tagline */
+#info #name { font-size: 2.1em; font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; }
+#info #bio { font-size: 1.05em; margin-top: .5em; }
+
+/* Nav: pill links, icon buttons in soft circles */
+#links #left a {
+  text-decoration: none; border: none; background: var(--subtle); color: var(--text);
+  padding: 0 16px; height: 36px; display: inline-flex; align-items: center;
+  border-radius: 999px; font-weight: 600; font-size: .94em; transition: background .15s, color .15s;
+}
+#links #left a:hover { background: var(--text); color: var(--bg); }
+#links #right a, #links #right button {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--subtle); border: none;
+  display: inline-flex; align-items: center; justify-content: center; color: var(--text);
+  transition: background .15s;
+}
+#links #right a:hover, #links #right button:hover { background: var(--text-decoration); }
+
+/* Section headings: caption style */
+.prose h1 {
+  font-size: .75em; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-pale); margin: 2.6em 0 1em;
+}
+
+/* Cards for experience / awards / projects */
+.exp, .award, .project-entry, .project-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  padding: 22px 24px; margin: 0 0 16px; box-shadow: var(--shadow-1);
+}
+.exp p, .award p, .project-entry p { margin: .6em 0 0; color: var(--text); }
+.exp ul { margin: .6em 0 0; padding-left: 1.2em; }
+.exp li { margin: .35em 0; }
+.exp-head .title, .award-head .title, .project-head .title { color: var(--text); font-weight: 600; }
+.exp-head .title em, .award-head .title em { color: var(--text-pale); font-style: normal; font-weight: 500; }
+.exp-head .date, .award-head .date, .project-head .date, .card-date {
+  font-family: var(--mono); font-size: .75em; color: var(--text-pale);
+  background: var(--subtle); border-radius: 6px; padding: 3px 8px; white-space: nowrap;
+}
+
+/* Prose links */
+.prose a { color: var(--primary); text-decoration: none; border: none; }
+.prose a:hover { text-decoration: underline; }
+.prose strong { font-weight: 600; }
+
+/* Project cards: tags + links as pills */
+.project-card { transition: box-shadow .15s, transform .15s; }
+.project-card:hover { border-color: var(--border); box-shadow: var(--shadow-2); transform: translateY(-2px); }
+.tag { border-radius: 999px; padding: 3px 10px; font-weight: 600; }
+.plinks a, .card-links a {
+  background: var(--subtle); color: var(--text); border-radius: 999px; padding: 4px 12px;
+  text-decoration: none; font-weight: 600; font-size: .88em; border: none;
+}
+.plinks a:hover, .card-links a:hover { background: var(--text); color: var(--bg); }
+.plinks .sep, .card-links .sep { display: none; }
+.plinks, .card-links { display: flex; flex-wrap: wrap; gap: 8px; border-top: none; padding-top: 0; margin-top: 14px; }
+
+/* Sub-pages */
+body.sub-page .back-link {
+  background: var(--subtle); border-radius: 999px; padding: 6px 14px; font-weight: 600;
+  font-size: .9em; text-decoration: none; color: var(--text);
+}
+body.sub-page .back-link:hover { background: var(--text); color: var(--bg); }
+.page-title { font-size: 1.75em; font-weight: 700; letter-spacing: -0.02em; }
+
+/* Blog list rows */
+.post-link {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 16px 20px; margin-bottom: 10px; box-shadow: var(--shadow-1); text-decoration: none;
+}
+.post-link .date { font-family: var(--mono); font-size: .75em; color: var(--text-pale); }
+
+/* Code */
+pre, code { font-family: var(--mono); }
+
+/* Stack name over tagline */
+#info { flex-direction: column; align-items: flex-start; gap: .25em; }
+#info #text { white-space: normal; }

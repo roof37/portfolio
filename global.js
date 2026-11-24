@@ -9,9 +9,8 @@ export let pages = [
   { url: 'projects/', title: 'Projects' },
   { url: 'resume/', title: 'Resume' },
   { url: 'contacts/', title: 'Contacts' },
-  { url: 'https://github.com/d2osborn', title: 'GitHub' },
-  { url: 'https://www.linkedin.com/in/diego-osborn/', title: 'LinkedIn' },
-  { url: 'meta/', title: 'Meta' }
+  { url: 'https://github.com/roof37', title: 'GitHub' },
+  { url: 'https://www.linkedin.com/in/ralph-halabi-47a6a6318/', title: 'LinkedIn' }
 ];
 
 export const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
