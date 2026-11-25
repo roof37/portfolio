@@ -1,0 +1,13 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - link "← Back to home" [ref=e4] [cursor=pointer]:
+      - /url: ../
+    - button "theme switch" [ref=e5] [cursor=pointer]
+  - heading "Selected Research Projects" [level=1] [ref=e9]
+  - generic [ref=e11]:
+    - generic [ref=e12]:
+      - heading "Your First Project" [level=3] [ref=e13]
+      - generic [ref=e14]: "2026"
+    - paragraph [ref=e15]: One or two sentences on the question you asked, the data you used, and what you found.
+    - link "Code Link" [ref=e17] [cursor=pointer]:
+      - /url: https://github.com/YOUR-USERNAME/your-repo

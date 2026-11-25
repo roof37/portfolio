@@ -581,7 +581,8 @@ body.sub-page .page-title {
   background: var(--primary-decoration);
   border-left: 3px solid var(--primary);
   padding: 1em 1.25em;
-  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
   font-size: 0.88em;
   line-height: 1.6;
   border-radius: 2px;
