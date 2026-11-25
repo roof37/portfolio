@@ -164,3 +164,138 @@ body.dark #info #theme-toggle{box-shadow:none}
 #theme-toggle .sun-icon,#theme-toggle .moon-icon{display:none}
 body.dark #theme-toggle .sun-icon{display:block}
 body:not(.dark) #theme-toggle .moon-icon{display:block}
+
+/* Blog post figures: wrap text around smaller images, with captions */
+.post-article figure{margin:1.5rem auto;text-align:center}
+.post-article figure img{width:100%;height:auto;border-radius:8px;display:block}
+.post-article figcaption{font-size:12px;line-height:1.4;opacity:.7;margin-top:.45rem;text-align:left}
+.post-article figure.fl{float:right;max-width:45%;margin:.3rem 0 1rem 1.5rem}
+.post-article figure.fl.left{float:left;margin:.3rem 1.5rem 1rem 0}
+.post-article h2,.post-article table{clear:both}
+@media (max-width:640px){.post-article figure.fl,.post-article figure.fl.left{float:none;max-width:100%;margin:1.5rem auto}}
+
+/* Image + text side by side (no hanging lines under a float) */
+.post-article .fig-row{display:flex;gap:1.5rem;align-items:flex-start;margin:1.5rem 0;clear:both}
+.post-article .fig-row.rev{flex-direction:row-reverse}
+.post-article .fig-row figure{flex:none;margin:0;max-width:45%}
+.post-article .fig-text{flex:1;min-width:0}
+.post-article .fig-text p:first-child{margin-top:0}
+.post-article .fig-text p:last-child{margin-bottom:0}
+@media (max-width:640px){.post-article .fig-row,.post-article .fig-row.rev{flex-direction:column;align-items:stretch}.post-article .fig-row figure{max-width:100%;margin:0 auto 1rem}}
+
+/* Resume: CV-style rows (dates left, details right) */
+.resume-sub{margin:.2rem 0 0}
+.r-label{margin:2.4em 0 0;padding-bottom:.7em;border-bottom:1px solid var(--hairline);color:var(--accent-text)}
+.resume-section .entry{display:grid;grid-template-columns:150px 1fr;gap:0 1.5rem;padding:18px 0;border-top:none}
+.entry-when{font-size:13px;font-weight:600;color:var(--accent-text);padding-top:2px}
+.entry-title{margin:0;font-size:16px;font-weight:600;line-height:1.35}
+.entry-role{margin:.15em 0 0;color:var(--text-pale)!important;font-size:15px}
+.entry-body p{margin:.15em 0 0;font-size:15px;line-height:1.55}
+.entry-body p:not(.entry-role){color:var(--text)}
+@media (max-width:640px){.resume-section .entry{grid-template-columns:1fr}.entry-when{padding:0 0 .2em}}
+
+/* Blog card grid */
+.post-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:1.2rem}
+.post-card{display:flex;flex-direction:column;background:var(--surface);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:var(--shadow-1);transition:transform .15s,box-shadow .15s}
+.post-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+body.dark .post-card{box-shadow:none}
+.post-card img,.post-card .pc-ph{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.post-card .pc-ph{display:flex;align-items:center;justify-content:center;background:var(--accent-tint);color:var(--accent-text);font-size:28px;font-weight:700;letter-spacing:.04em}
+.pc-body{padding:14px 18px 18px;display:flex;flex-direction:column;gap:6px}
+.pc-body .date{color:var(--accent-text)!important;font-weight:600}
+.pc-body h2{text-transform:none!important;letter-spacing:0!important;margin:0;font-size:17px;line-height:1.3;font-weight:600}
+.pc-body p{margin:0;font-size:14px;line-height:1.45;color:var(--text-pale)}
+/* Blog paragraphs: space between, no indent */
+.post-article > p,.post-article .fig-text > p{margin:0 0 1.1em}
+
+.post-article .post-subtitle{margin:.35rem 0 .2rem;font-size:19px;font-weight:600;line-height:1.35;color:var(--accent-text);text-indent:0}
+
+/* Stat tables */
+.post-article .table-wrap{margin:1.2rem 0 1.6rem;background:var(--surface);border-radius:16px;box-shadow:var(--shadow-1);overflow-x:auto;clear:both}
+body.dark .post-article .table-wrap{box-shadow:none}
+.stat-table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.stat-table th,.stat-table td{padding:11px 18px;text-align:center;border-bottom:1px solid var(--hairline);white-space:nowrap}
+.stat-table tr:last-child th,.stat-table tr:last-child td{border-bottom:none}
+.stat-table tr:first-child th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text);background:var(--accent-tint);border-bottom:none}
+.stat-table tr:not(:first-child) th{text-align:left;font-weight:600;color:var(--text-pale)}
+.stat-table tr:not(:first-child):hover td,.stat-table tr:not(:first-child):hover th{background:var(--subtle)}
+
+.stat-table td.best{background:rgba(0,160,94,.14);color:var(--accent-text);font-weight:700}
+.stat-table td.worst{background:rgba(214,48,49,.12);color:#c0392b;font-weight:700}
+body.dark .stat-table td.worst{color:#ff7b72;background:rgba(255,123,114,.14)}
+.post-article .table-key{font-size:12px;opacity:.75;margin:-.9rem 0 1.4rem;text-indent:0}
+.table-key .k{display:inline-block;padding:1px 8px;border-radius:999px;font-weight:600;margin-right:4px}
+.table-key .k.best{background:rgba(0,160,94,.14);color:var(--accent-text)}
+.table-key .k.worst{background:rgba(214,48,49,.12);color:#c0392b}
+.stat-table td.tie::after{content:"tie";margin-left:7px;padding:1px 6px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:middle;background:rgba(0,0,0,.08)}
+body.dark .stat-table td.tie::after{background:rgba(255,255,255,.14)}
+
+/* Project page: white card around title + embedded deck */
+.project-page{background:var(--surface);border-radius:24px;box-shadow:var(--shadow-1);padding:28px 32px 30px}
+body.dark .project-page{box-shadow:none}
+.project-page h1{margin-top:0}
+.project-page .post-subtitle{margin:.5rem 0 1.3rem;font-size:17px;font-weight:500;color:var(--text-pale)}
+.deck-frame{position:relative;width:100%;aspect-ratio:960/569;margin:0 0 1.2rem;border-radius:14px;overflow:hidden;border:1px solid var(--hairline);background:var(--subtle)}
+.deck-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.project-page .deck-actions{margin:0}
+@media (max-width:640px){.project-page{padding:20px 16px 22px;border-radius:20px}}
+
+/* Clickable project cards */
+.project-card{position:relative}
+.project-card .card-cover{color:inherit;text-decoration:none}
+.project-card .card-cover::after{content:"";position:absolute;inset:0;border-radius:24px;cursor:pointer}
+.project-card .card-links{position:relative;z-index:1;width:fit-content}
+
+/* Project detail page */
+.post-article .back{margin:0 0 .4rem;font-size:13px}
+.project-page .project-title{margin:.5rem 0 .2rem;font-size:24px;font-weight:700;line-height:1.25}
+.project-page .project-meta{margin:0 0 1rem;font-size:13px;color:var(--text-pale)}
+.project-page h2{margin:1.8rem 0 .6rem}
+.project-page .table-wrap{box-shadow:none;border:1px solid var(--hairline)}
+.stat-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:1.4rem 0 .4rem}
+.stat-tiles div{background:var(--accent-tint);border-radius:14px;padding:14px 16px}
+.stat-tiles strong{display:block;font-size:26px;color:var(--accent-text);line-height:1.2}
+.stat-tiles span{font-size:12px;line-height:1.35;display:block}
+.project-page figure{max-width:640px}
+.project-page figure img{background:#fff}
+.project-card .card-title,.project-card .card-cover{color:var(--accent-text)!important}
+.page-title.underline-orange{display:table;background:linear-gradient(#f28c28,#f28c28) 0 94%/50% .16em no-repeat;padding-bottom:.12em}
+.deck-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;margin:0 0 1.2rem}
+.project-page .deck-head .post-subtitle{margin-bottom:0}
+.project-page .deck-head .project-meta{margin-bottom:0}
+.post-article .back a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--hairline);background:var(--surface);color:var(--text);box-shadow:var(--shadow-1);text-decoration:none}
+.post-article .back a:hover{background:var(--accent-tint);color:var(--accent-text)}
+.post-article .back svg{margin-left:-2px}
+.post-article .back{margin:0 0 .6rem;text-indent:0}
+/* Blog posts: plain back chevron, no circle */
+.post-article:not(.project-page) .back a{width:auto;height:44px;justify-content:flex-start;padding-right:12px;border:none;border-radius:0;background:transparent;box-shadow:none}
+.post-article:not(.project-page) .back a:hover{background:transparent}
+.post-article:not(.project-page) .back svg{margin-left:-6px}
+.entry-title a{color:var(--accent-text);text-decoration:none}
+.resume-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;margin:32px 0 0}
+.resume-head .page-title,.resume-head .resume-sub{margin:0}
+
+/* Resume: one card per section, plain headings (no dot) */
+.resume-head{margin-bottom:1.2rem}
+.resume-section{background:var(--surface);border-radius:24px;box-shadow:var(--shadow-1);padding:24px 32px 10px;margin:0 0 16px}
+body.dark .resume-section{box-shadow:none}
+.resume-section .r-label{display:block;margin:0;padding:0 0 12px;font-size:20px;font-weight:700;letter-spacing:-.01em;text-transform:none;color:var(--text);border-bottom:2px solid var(--hairline)}
+.resume-section .r-label::before{content:none}
+.resume-section .entry{padding:18px 0;border-top:1px solid var(--hairline)}
+.resume-section .entry:first-of-type{border-top:none}
+@media (max-width:640px){.resume-section{padding:20px 18px 6px;border-radius:20px}.resume-section .entry{grid-template-columns:1fr}}
+
+/* Resume: flat layout, no cards or round bullets */
+.resume-section,body.dark .resume-section{background:transparent;border-radius:0;box-shadow:none;padding:0;margin:0 0 28px}
+.resume-section .r-label{border-bottom:2px solid var(--text)}
+.resume-section .entry{border-top-color:rgba(128,128,128,.25)}
+.resume-section .entry ul{list-style:none;padding-left:0}
+.resume-section .entry li{position:relative;padding-left:1.1em}
+.resume-section .entry li::before{content:"•";position:absolute;left:0;color:var(--accent)}
+.resume-head .button-link{border-radius:6px}
+@media (max-width:640px){.resume-section{padding:0;border-radius:0}}
+.entry-when.past{color:var(--text-pale)}
+
+/* Home entries: position on its own line under the organization */
+.exp-head .title em{display:block;margin-top:2px}
+.resume-section .entry-body p.entry-blurb{margin:.65em 0 0;font-size:15px;line-height:1.65}

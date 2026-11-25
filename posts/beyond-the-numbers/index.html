@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Beyond the Numbers: Understanding the Power of Context - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if ((theme && theme === 'dark') || (!theme && match)) { document.body.classList.add('dark'); }
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article">
+      <p class="back"><a href="../" aria-label="All posts" title="All posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <h1>Beyond the Numbers: Understanding the Power of Context</h1>
+      <div class="post-meta"><span class="post-date">November 22, 2023</span></div>
+<figure style="max-width:545px"><img src="cover.jpg" alt="Pittsburgh Steelers quarterback" /><figcaption>Pittsburgh quarterback throwing from the pocket.</figcaption></figure><p>Statistics is organized chaos. The Pittsburgh Steelers are in shambles, a step above chaos. If that is not apparent already, take a look at this statistic. Out of all the starting quarterbacks in the National Football League (NFL), Kenny Pickett has the worst passing-to-touchdown rate according to CBS Sports with 1.9% of all his passes converting to touchdowns. For reference, Brock Purdy of the San Francisco 49ers and Justin Fields of the Chicago Bears both have a percentage of 6.5%.</p>
+<p>Context is important here as the 49ers are built around a pass-first offense where more passes are being attempted (with 307/445 completed passes leading to a 69% completion rate and currently at 4,036 passing yards and 134 rushing yards throughout his two-year career) while the Bears are built around Justin Fields scrambling and running (with 467/773 completed passes leading to a 60.4% completion rate and currently at 5,482 passing yards and 1,904 rushing yards throughout his three-year career).</p>
+<p>Outside variables and other confounding variables are evident here including confidence in the quarterback, offensive coordinators, head coaches, hand size (yes, this is an actual statistic and Kenny Pickett has the smallest hands in the NFL at around 8.625 inches for those wondering), etc. leading to immeasurable variables. Although all of the mentioned quarterbacks have somewhat similar stats, their play styles are completely different and the team around them is built differently. It’s important to take context and samples into account when analyzing a sports team and look at every situation with an open perspective rather than take the numbers too literally.</p>
+<p><em>Note: All data points given are career statistics.</em></p><div class="table-wrap"><table class="stat-table"><tr><th></th><th>Kenny Pickett</th><th>Brock Purdy</th><th>Justin Fields</th></tr><tr><th>Years in NFL</th><td>2</td><td>2</td><td>3</td></tr><tr><th>Games Played</th><td>23</td><td>19</td><td>34</td></tr><tr><th>Hand Size (in.)</th><td class="worst">8.625</td><td class="best">9.25</td><td>9.125</td></tr><tr><th>Passing to Touchdown Rate</th><td class="worst">1.9%</td><td class="best tie">6.5%</td><td class="best tie">6.5%</td></tr><tr><th>Attempted Passes</th><td>670</td><td>445</td><td>773</td></tr><tr><th>Successful Completions</th><td>415</td><td class="worst">307</td><td class="best">467</td></tr><tr><th>Passing Completion Rate</th><td>61.9%</td><td class="best">69%</td><td class="worst">60.4%</td></tr><tr><th>Passing Yards</th><td>4,126</td><td class="worst">4,036</td><td class="best">5,482</td></tr><tr><th>Rushing Attempts</th><td>89</td><td>52</td><td>297</td></tr><tr><th>Rushing Yards</th><td>283</td><td class="worst">134</td><td class="best">1,904</td></tr></table></div><p class="table-key"><span class="k best">Best</span> <span class="k worst">Worst</span> of the three, shown for performance stats only (not career length or volume). Tied players share the color and are marked “tie”.</p><p><em>Via ESPN (as of 11/22/23)</em></p>
+    </article>
+  </main></div>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) { toggle.addEventListener('click', () => { document.body.classList.toggle('dark'); sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); }); }
+  </script>
+</body>
+</html>

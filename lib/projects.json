@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "title": "Possession and Scoring in the Premier League",
+    "year": "2026",
+    "description": "Can possession predict how much a Premier League team scores? A logistic regression on 240 team-seasons reached 60.4% accuracy, nearly double chance.",
+    "paper": "projects/possession-scoring/Logistic_Regression_Report.pdf",
+    "page": "projects/possession-scoring/"
+  },
+  {
+    "title": "Statistics in Sports",
+    "year": "2024",
+    "description": "My senior-year, TED Talk style presentation on when to trust sports statistics and when to ignore them.",
+    "slides": "https://docs.google.com/presentation/d/1ivbxWpwaXFTHUX8WfvhQC_zZCmYyw6rgQtCqLL0ifg8/edit",
+    "page": "projects/statistics-in-sports/"
+  }
+]

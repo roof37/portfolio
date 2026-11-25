@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Statistics in Sports - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    if ((theme === 'dark') || (!theme && matchMedia("(prefers-color-scheme: dark)").matches)) document.body.classList.add('dark');
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article project-page">
+      <p class="back"><a href="../" aria-label="All projects" title="All projects"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <div class="deck-head">
+        <div>
+          <h1>Presentation</h1>
+          <p class="post-subtitle">Senior Research Project 2024: Statistics in Sports</p>
+        </div>
+        <p class="deck-actions"><a class="button-link" href="https://docs.google.com/presentation/d/1ivbxWpwaXFTHUX8WfvhQC_zZCmYyw6rgQtCqLL0ifg8/edit" target="_blank" rel="noopener noreferrer" style="margin-left:0">Open in Google Slides</a></p>
+      </div>
+      <div class="deck-frame"><iframe src="https://docs.google.com/presentation/d/1ivbxWpwaXFTHUX8WfvhQC_zZCmYyw6rgQtCqLL0ifg8/embed?start=false&loop=false" title="Statistics in Sports slides" allowfullscreen loading="lazy"></iframe></div>
+      <h2>Overview</h2>
+      <p>For my high school English class in my senior year, we had to give a 10-minute TED Talk style presentation on whatever we wanted. This was the presentation I ended up presenting.</p>
+      <h2>What it covers</h2>
+      <p>The presentation opens with a statistical breakdown of Michael Jordan&rsquo;s quote about missed shots and lost games, then looks at times to ignore statistical data and the &ldquo;eye test.&rdquo; From there it covers Moneyball and the Oakland Athletics, recruiting strategy that relies heavily on statistics, and two examples of players defying their odds. It also draws on insights from Dr. Bryan Nelson, a statistics professor at the University of Pittsburgh (<a href="../../posts/interview-dr-bryan-nelson/" target="_blank" rel="noopener">read the interview</a>).</p>
+    </article>
+  </main></div>
+  <script>
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

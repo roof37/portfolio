@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="description" content="Raouf Ralph Halabi - Performance Analyst with Penn State Men's Soccer" />
+  <meta name="description" content="Raouf Ralph Halabi - Lead Data Analyst with Penn State Men's Soccer" />
   <title>Raouf Ralph Halabi</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="scope.css" />
@@ -18,6 +18,10 @@
     if ((theme && theme === 'dark') || (!theme && match)) {
       document.body.classList.add('dark');
     }
+    // Follow live system changes until the visitor picks a theme manually
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', e => {
+      if (!sessionStorage.getItem('theme')) document.body.classList.toggle('dark', e.matches);
+    });
   </script>
 
   <div id="wrapper">
@@ -31,7 +35,7 @@
           <span id="name">Raouf Ralph Halabi</span>
         </div>
         <!-- <div id="bio">Data Scientist</div> -->
-        <div id="bio">Data Analyst with Penn State Men's Soccer | Biomechanics Research Assistant</div>
+        <div id="bio">Lead Data Analyst for Penn State Men's Soccer<br>Biomechanics Research Assistant</div>
         <button id="theme-toggle" aria-label="theme switch">
             <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
             <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
@@ -46,7 +50,7 @@
           <a href="." aria-current="page">Home</a>
           <a href="projects/">Projects</a>
           <a href="posts/">Blog</a>
-          <a href="resume/" >Resume</a>
+          <a href="resume/" >CV</a>
         </div>
         <div id="right">
           <a href="https://github.com/roof37" aria-label="GitHub" target="_blank" rel="noreferrer noopener">
@@ -73,65 +77,11 @@
       <section id="brief" class="prose">
 
         <p>
-          Hi there! I'm Ralph, a Computational Data Science student at Penn State working in sports analytics across soccer, lacrosse, sprint biomechanics, and golf.
+          Hey! My name is Raouf Halabi (I usually go by Ralph, since it's easier to pronounce). I enjoy putting things together, from reports, charts and statistics to models and machine learning, and presenting them so people can understand what's going on based on the trends. I'm currently working in sports analytics with Penn State Men's Soccer, and formerly with Penn State Men's Lacrosse. I'm also interested in other fields like medicine and finance.
         </p>
         <!-- TODO: expand this intro with what you're looking for (internship, job, grad school). -->
         <p>
           If you'd like to reach out, feel free to send an email or check out my socials!
-        </p>
-
-        <h1 id="education">Education</h1>
-
-        <div class="exp">
-          <div class="exp-head">
-            <span class="title">The Pennsylvania State University, University Park - <em>B.S. Computational Data Science</em></span>
-          </div>
-          <p>
-            Minor: Mathematics<br>
-            GPA: 3.44<br>
-            Organizations: Sports Analytics Club, Club Cross-Country, Club Track &amp; Field
-          </p>
-        </div>
-
-        <h1 id="experience">Experiences</h1>
-
-        <div class="exp">
-          <div class="exp-head">
-            <span class="title">Penn State Men's Soccer - <em>Co-Lead Performance Analyst</em></span>
-            <span class="date now">Jan 2026 – Present</span>
-          </div>
-          <p class="blurb">I work with the coaching staff on the data side of the program. I co-built a dashboard that pulls event data from Hudl Statsbomb and Wyscout into one central place, so the staff can see team information without hunting through separate tools. Week to week, I scout high school, international and Transfer Portal players and write up what stands out for the coaches to evaluate. Before matches, I put together opponent reports on the threats we'll face and where they're vulnerable, and I cut film on opposing attackers so our defenders can study their habits and likely matchups.</p>
-        </div>
-        <div class="exp">
-          <div class="exp-head">
-            <span class="title">Ken Clark Speed - <em>Sprints Biomechanics Intern</em></span>
-            <span class="date now">Jun 2026 – Present</span>
-          </div>
-          <p class="blurb">I work alongside Dr. Ken Clark breaking down sprint film from USATF meets. Using Kinovea, I mark up races frame by frame to study how elite sprinters move, then track the results so athletes can see what the film shows. At live meets, the work moves fast: results have to be turned around between rounds so athletes can adjust before their next race. I also stay in close contact with the other analysts to cross-check our markings so the whole team's results are consistent and reliable.</p>
-        </div>
-        <div class="exp">
-          <div class="exp-head">
-            <span class="title">Penn State Men's Lacrosse - <em>Lead Data Analyst</em></span>
-            <span class="date">Sep 2024 – May 2026</span>
-          </div>
-          <p class="blurb">I founded the program's analytics department and led a small team of analysts. We studied film of opponents and our own team to find the trends that mattered, and used Python and Excel to turn them into shot plots and other visuals the coaches could use. I worked directly with the coaching staff to set and prioritize the analytical workload each week through two seasons, so the work always fed into how they were preparing for games.</p>
-        </div>
-
-        <h1 id="research">Research</h1>
-
-        <div class="exp">
-          <div class="exp-head">
-            <span class="title">The Suzy and Jim Broadhurst Golf Teaching and Research Center - <em>Golf Biomechanics Research Assistant</em></span>
-            <span class="date now">May 2026 – Present</span>
-          </div>
-          <p class="blurb">I'm helping build an interactive web application that models golf swing biomechanics and ball flight, working with Dr. Eric Handley, Dr. Joe LeSueur and Dan Merrell. It's designed as a teaching aid for Penn State World Campus' course <i>Biomechanics of Golf</i> in the Penn State College of Health and Human Development, so the goal is to make the physics easy to see and explore. I built the simulation on TrackMan launch monitor data, showing how swing path, club face angle and ball contact interact to shape where the ball ends up.</p>
-        </div>
-
-        <h1 id="skills">Skills</h1>
-
-        <p>
-          <strong>Technology:</strong> Python, SQL, Excel, Microsoft Office, Google Suite, Data Pipelines, LaTeX, TiDB, Hudl, Kinovea, TrackMan, Prompt Engineering<br>
-          <strong>Languages:</strong> English, Arabic (Conversational)
         </p>
 
       </section>
@@ -140,6 +90,5 @@
   </div>
 
   <script type="module" src="index.js"></script>
-  <script src="tabs.js"></script>
 </body>
 </html>

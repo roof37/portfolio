@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Turf vs. Grass: An Introduction - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if ((theme && theme === 'dark') || (!theme && match)) { document.body.classList.add('dark'); }
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article">
+      <p class="back"><a href="../" aria-label="All posts" title="All posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <h1>Turf vs. Grass: An Introduction</h1>
+      <div class="post-meta"><span class="post-date">January 6, 2024</span></div>
+<div class="fig-row rev"><figure style="width:352px"><img src="turf-vs-grass.webp" alt="Aaron Rodgers helped off the field by trainers" /><figcaption>Aaron Rodgers is helped off the field after his season-ending injury.</figcaption></figure><div class="fig-text"><p>Aaron Rodgers of the New York Jets. New team, new atmosphere, and a new step in his career. He only took 4 snaps before he could step no longer. This tragic injury occurred at the infamous MetLife Stadium in week 1 against the Buffalo Bills.</p><p>Jaelan Phillips, linebacker for the Miami Dolphins, played the New York Jets at MetLife Stadium. His Achilles popped while sprinting off the line of scrimmage in a non-contact injury.</p><p>During the MLS Season when Inter Miami was set to play Atlanta United, superstar Lionel Messi was set to miss the game with rumors that the team was protecting him from injury being that the game would be played at the fully turfed Mercedes-Benz Stadium.</p><p>With the 2026 FIFA World Cup coming to the United States, and games being set to be played in many NFL Stadiums, sports organizations and fans across football and fútbol are pushing for all turf fields to be replaced with grass in an effort to minimize injury, specifically non-contact injuries, as it has been found that more injuries occur on turf than on regular grass fields.</p></div></div>
+<p>According to the National Football League Players Association (NFLPA), the “union” for professional football players, they have found that “players have a 28% higher rate of non-contact lower extremity injuries when playing on artificial turf. Of those non-contact injuries, players have a 32% higher rate of non-contact knee injuries on turf and a staggering 69% higher rate of non-contact foot/ankle injuries on turf compared to grass”.</p><p>Their claim is brief and straightforward: “NFL clubs should proactively change all field surfaces to natural grass.”</p><div class="fig-row"><figure style="width:318px"><img src="pew-why-fans-watch.png" alt="Pew Research chart of why Americans follow sports" /><figcaption>Why Americans follow sports. Source: Pew Research Center, 2023.</figcaption></figure><div class="fig-text"><p>At the end of the day, the NFL is an entertainment business, and it's inevitable that players will get hurt; it is a contact sport. There is a difference, however, between getting tackled and breaking or tearing something as a result versus completing a normal running motion. These non-contact injuries are detrimental to the team, the player physically and mentally, as well as the NFL being in the business they are.</p>
+<p>Fans love watching players play and if you don’t have your superstar quarterback playing, ticket sales may stagnate and casual fans may be less likely to tune into the game. According to Pew Research Center, of the people questioned, 73% stated that a reason they would watch a game is to watch a certain player.</p><p>Protecting the players is a major concern at the moment, and the athletes are the ones who make the NFL what it is. The statistics speak for themselves and this is only really scratching the surface on this very topic. As a sports fan and an athlete, I felt it was important to analyze this surprising claim and statistics surrounding it as it has been making its way to the headlines week after week. There is still much more research to be done along with the financial aspects and logistics to make the most educated decision on this topic, but it's difficult to not weigh in when you see the frustrations arising. I am looking to follow up on this and dig deeper into this topic.</p></div></div>
+<h2>Sources</h2><ul><li><a href="https://www.espn.com/nfl/story/_/id/36243906/nflpa-new-injury-data-shows-grass-significantly-safer-turf" target="_blank" rel="noopener">ESPN: NFLPA new injury data shows grass significantly safer than turf</a></li><li><a href="https://nflpa.com/posts/only-natural-grass-can-level-the-nfls-playing-field" target="_blank" rel="noopener">NFLPA: Only natural grass can level the NFL’s playing field</a></li><li><a href="https://www.pewresearch.org/short-reads/2023/10/17/most-americans-dont-closely-follow-professional-or-college-sports/" target="_blank" rel="noopener">Pew Research Center</a></li></ul>
+    </article>
+  </main></div>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) { toggle.addEventListener('click', () => { document.body.classList.toggle('dark'); sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); }); }
+  </script>
+</body>
+</html>

@@ -34,7 +34,7 @@ function renderProjectCards(projects, containerElement) {
       <div class="empty-state">
         <span class="tag">Coming soon</span>
         <h3>Projects are on the way</h3>
-        <p>I'm putting together write-ups on my sports analytics work. Check back soon, or see my <a href="../resume/">resume</a> in the meantime.</p>
+        <p>I'm putting together write-ups on my sports analytics work. Check back soon, or see my <a href="../resume/">CV</a> in the meantime.</p>
       </div>`;
     return;
   }
@@ -68,7 +68,7 @@ function renderProjectCards(projects, containerElement) {
     return `
       <div class="project-card">
         <div class="card-header">
-          <h3 class="card-title">${project.title ?? 'Untitled Project'}</h3>
+          <h3 class="card-title">${project.page ? `<a class="card-cover" href="../${project.page}">${project.title}</a>` : project.title ?? 'Untitled Project'}</h3>
           ${project.year ? `<span class="card-date">${project.year}</span>` : ''}
         </div>
         ${tagsHtml}

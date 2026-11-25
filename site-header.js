@@ -2,17 +2,18 @@
 (function () {
   const root = document.getElementById('site-header');
   if (!root) return;
-  const base = '../';
+  // Base path follows how deep the page is (the script src is relative to the page).
+  const base = (document.currentScript.getAttribute('src') || '').replace(/site-header\.js.*$/, '') || '../';
   const path = location.pathname.replace(/index\.html$/, '');
-  const items = [['', 'Home'], ['projects/', 'Projects'], ['posts/', 'Blog'], ['resume/', 'Resume']];
+  const items = [['', 'Home'], ['projects/', 'Projects'], ['posts/', 'Blog'], ['resume/', 'CV']];
   const links = items.map(([p, t]) => {
-    const current = p ? path.endsWith('/' + p) : false;
+    const current = p ? path.includes('/' + p) : false;
     return `<a href="${base}${p}"${current ? ' aria-current="page"' : ''}>${t}</a>`;
   }).join('\n          ');
   root.outerHTML = `
       <section id="info">
         <div id="text"><a href="${base}" id="name">Raouf Ralph Halabi</a></div>
-        <div id="bio">Data Analyst with Penn State Men's Soccer | Biomechanics Research Assistant</div>
+        <div id="bio">Lead Data Analyst for Penn State Men's Soccer<br>Biomechanics Research Assistant</div>
         <button id="theme-toggle" aria-label="theme switch">
             <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
             <span class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span>
@@ -40,4 +41,58 @@
           </a>
         </div>` + `
       </section>`;
+})();
+
+// Blog posts: fit the text column beside each image to the image's height (re-runs on resize).
+(function () {
+  let rows = [];
+  function fit() {
+    const narrow = window.matchMedia('(max-width: 640px)').matches;
+    rows.forEach(row => {
+      const box = row.querySelector('.fig-text'), fig = row.querySelector('figure');
+      const pool = [...box.children];
+      let n = row.nextElementSibling;
+      while (n && n.tagName === 'P') { pool.push(n); n = n.nextElementSibling; }
+      // Start empty, then add paragraphs in order.
+      pool.forEach(p => row.after(p));            // temporarily place after row (keeps order below)
+      for (let i = pool.length - 1; i >= 0; i--) row.after(pool[i]);
+      if (narrow) { pool.forEach(p => box.appendChild(p)); return; }
+      const target = fig.getBoundingClientRect().height;
+      let used = 0;
+      pool.forEach((p, i) => {
+        const before = box.getBoundingClientRect().height;
+        box.appendChild(p);
+        const after = box.getBoundingClientRect().height;
+        if (i === 0) { used = 1; return; }
+        // keep this paragraph only if it brings the text height closer to the image height
+        if (used === i && before < target && Math.abs(after - target) < Math.abs(before - target)) { used++; }
+        else row.after(p);
+      });
+      // paragraphs moved out must stay in original order after the row
+      const out = pool.slice(used);
+      for (let i = out.length - 1; i >= 0; i--) row.after(out[i]);
+    });
+  }
+  const run = () => requestAnimationFrame(fit);
+  function init() {
+    rows = [...document.querySelectorAll('.fig-row')];
+    if (!rows.length) return;
+    window.addEventListener('load', run);
+    let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(run, 120); });
+    document.querySelectorAll('.fig-row img').forEach(i => i.complete || i.addEventListener('load', run));
+    run();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+// Theme: start from the system light/dark setting; a manual toggle overrides it for this tab session.
+// If the system setting changes while no manual choice exists, follow it live.
+(function () {
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+  const apply = () => {
+    if (sessionStorage.getItem('theme')) return;
+    document.body.classList.toggle('dark', mq.matches);
+  };
+  apply();
+  (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(apply);
 })();

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Possession and Scoring in the Premier League - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    if ((theme === 'dark') || (!theme && matchMedia("(prefers-color-scheme: dark)").matches)) document.body.classList.add('dark');
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article project-page">
+      <p class="back"><a href="../" aria-label="All projects" title="All projects"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <div class="deck-head">
+        <div>
+          <h1>Machine Learning</h1>
+          <p class="project-title">Possession and Scoring in the Premier League</p>
+          <p class="project-meta">CMPSC 448: Machine Learning &middot; The Pennsylvania State University &middot; 2026</p>
+        </div>
+        <p class="deck-actions"><a class="button-link" href="Logistic_Regression_Report.pdf" target="_blank" rel="noopener noreferrer" style="margin-left:0">Read the full report (PDF)</a></p>
+      </div>
+
+      <div class="stat-tiles">
+        <div><strong>60.4%</strong><span>test accuracy (chance: about 34%)</span></div>
+        <div><strong>0.77</strong><span>(r value) correlation between possession and goals</span></div>
+        <div><strong>240</strong><span>team-seasons, 2014&ndash;15 to 2025&ndash;26</span></div>
+      </div>
+
+      <h2>The question</h2>
+      <p>Can a team&rsquo;s average possession percentage predict how many goals it scores in a season? The project was inspired by Pep Guardiola, whose possession-heavy style at Manchester City came with six Premier League titles and a record 100-point season in 2017&ndash;18.</p>
+
+      <h2>Data and method</h2>
+      <p>The data come from Football Reference squad statistics: twelve seasons covering 35 clubs. Season goals were split into three quantile-based classes (Low, Medium and High), so each holds roughly one third of the team-seasons. Ties in goal totals at the cut points keep the split from being exactly equal. Then a multinomial logistic regression (scikit-learn) was trained with possession as its only feature, using an 80/20 train/test split.</p>
+      <div class="table-wrap"><table class="stat-table"><tr><th>Scoring class</th><th>Goals scored</th><th>Team-seasons</th></tr><tr><th>Low</th><td>19&ndash;42</td><td>82</td></tr><tr><th>Medium</th><td>43&ndash;56</td><td>79</td></tr><tr><th>High</th><td>57&ndash;103</td><td>79</td></tr></table></div>
+
+      <h2>Results</h2>
+      <p>The model classified 29 of 48 held-out team-seasons correctly. Training accuracy was 62.5%, so there was no sign of overfitting, and five-fold cross-validation gave similar results (61.3% stratified, 60.0% grouped by club, 62.2% grouped by season).</p>
+      <figure><img src="possession-vs-goals.png" alt="Scatter plot of average possession against goals scored, colored by scoring class" /><figcaption>Possession versus goals scored by scoring class. The dashed line is a linear trend; dotted lines mark the class boundaries.</figcaption></figure>
+      <div class="table-wrap"><table class="stat-table"><tr><th>Class</th><th>Precision</th><th>Recall</th><th>F1</th><th>Test cases</th></tr><tr><th>High</th><td>0.69</td><td>0.75</td><td>0.72</td><td>12</td></tr><tr><th>Low</th><td>0.61</td><td>0.74</td><td>0.67</td><td>19</td></tr><tr><th>Medium</th><td>0.50</td><td>0.35</td><td>0.41</td><td>17</td></tr></table></div>
+
+      <h2>Takeaways</h2>
+      <ul>
+        <li><strong>The relationship is strong and stable.</strong> The within-season correlation exceeded 0.7 in ten of twelve seasons.</li>
+        <li><strong>Medium scorers are hard to predict.</strong> With one feature, the middle class only wins a narrow range of possession values. No High team was ever predicted as Low.</li>
+        <li><strong>Association is not causation.</strong> Possession likely reflects squad quality and tactical style, so this does not show that holding the ball more causes more goals.</li>
+      </ul>
+
+      <h2>Limitations</h2>
+      <p>Possession is the only feature, so shot volume and quality, squad strength and style likely explain much of the remaining variation. The dataset is small (240 team-seasons) with only 48 test rows, and the train/test split was not stratified, which leaves High scorers underrepresented and their scores especially uncertain. Teams just either side of a class cut-off (42/43 or 56/57 goals) are treated as entirely different, and clubs repeat across seasons, so team-seasons are not independent. Squad quality was not measured, so the relationship shows association only.</p>
+    </article>
+  </main></div>
+  <script>
+    document.getElementById('theme-toggle')?.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>

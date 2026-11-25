@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Moneyball: A Statistical Gamble - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if ((theme && theme === 'dark') || (!theme && match)) { document.body.classList.add('dark'); }
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article">
+      <p class="back"><a href="../" aria-label="All posts" title="All posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <h1>Moneyball: A Statistical Gamble</h1>
+      <div class="post-meta"><span class="post-date">December 8, 2023</span></div>
+<div class="fig-row rev"><figure style="width:350px"><img src="moneyball.jpg" alt="Oakland Athletics players celebrating" /><figcaption>Oakland Athletics players, the team behind the Moneyball approach.</figcaption></figure><div class="fig-text"><p>The Oakland Athletics were never always bad. Yes, their 50-112 losing record in the 2023 season and the .309 winning percentage (both the worst in the MLB), speak absolute volumes about the distressful situation they are currently in; many are quick to blame the management and they are probably correct, however, in the early 2000s one could argue that they were the best-managed team behind the scenes. The numbers even back this up, having the longest winning streak of the 21st century at 20 games and tied for 5th all-time. This was accomplished as it was more than just good players or a good manager in the dugout. It was the Moneyball approach that worked so heavily in Oakland’s favor.</p><p>It is most commonly believed that the spread of sports analytics started in Baseball with the fathers of it being Billy Beane, the front office executive of the Oakland Athletics, and Paul DePodesta the front office assistant of the organization during the 2002 season. The methodology of Moneyball is to pick up undervalued players for cheap and build the framework for a team that fits into the team's style, calculated by a linear regression model.</p>
+<p>This was suitable given the limited budget the A’s were working with and looking more so at a player's potential rather than their current statistics. This risk does not always pay off, however when calculated correctly, there are diamonds in the rough. The statistical model plotted out a series of games and the type of caliber players needed to win, taking into account players with high chances of landing on bases, and batting averages.</p>
+<p>Prior to the season and through calculations, Beane estimated that the A’s needed 95 wins and to score 135 runs to make it to the playoffs. They won 103 games (103-59 record with a .636 winning percentage) and were second in the MLB entering the postseason. Although they were beaten in the Divisional Round, this was a far cry from their 1998 season just four years prior where they were sitting at a 74-88 record with a .457 winning percentage. Yes, this is a respectable season but not enough to make it to the playoffs.</p>
+<p>In sports good enough isn’t enough, so the management office chasing statistical domination was one of the reasons for their early 2000’s success. Their slow descent in form can be attributed to their change in owner, as they were bought out in 2005, and poor financial management. The formulas utilized during this notable run are conveyed by Samford University; this spread throughout the MLB and eventually to other leagues and sports teams opening up sports analytics departments.</p></div></div>
+<p>One of the other leagues embracing this new technology is the English Premier League which has two teams punching well above their weight: Brentford FC, and Brighton and Hove Albion. Their owners, Tony Bloom for Brighton and Matthew Benham for Brentford were professional gamblers before buying majority stakes in their clubs, so they understand when and where to take risks which is where Moneyball flourishes.</p><p>While Brentford plays more direct soccer and Brighton more possession-based, both have a limited budget (€90 million and €96 million respectively) and have signed some talented players in Kaoru Mitoma for Brighton and Bryan Mbeumo for Brentford. These different styles of play are analyzed further by Opta Analyst in <a href="https://theanalyst.com/articles/brighton-and-brentford-two-smart-clubs-who-play-the-game-in-opposite-ways" target="_blank" rel="noopener">Brighton and Brentford: Two Smart Clubs Who Play the Game in Opposite Ways</a>, which is well worth reading in full. For context, the biggest spenders in the Premier League during last season's transfer windows were Chelsea at £434.5 million (€506.15 million) and they finished in the bottom half of the table while Brentford and Brighton finished in the top half, above Chelsea.</p><p>What makes this even more impressive is that Brentford was in the second division (the Championship) of English Soccer. Their first real season was in the 2021-2022 season where they placed 13th; respectable for their first-ever Premier League season since 1946. It’s more than tactics, good players, good coaches and managers, team culture, and money. Although all of that is important and can be a major factor in winning, proper management can do wonders for a team.</p><h2>Sources</h2><ul><li><a href="https://www.samford.edu/sports-analytics/fans/2019/The-Moneyball-Science" target="_blank" rel="noopener">Samford University: The Moneyball Science</a></li><li><a href="https://theanalyst.com/articles/brighton-and-brentford-two-smart-clubs-who-play-the-game-in-opposite-ways" target="_blank" rel="noopener">Opta Analyst: Brighton and Brentford</a></li></ul>
+    </article>
+  </main></div>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) { toggle.addEventListener('click', () => { document.body.classList.toggle('dark'); sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); }); }
+  </script>
+</body>
+</html>

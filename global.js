@@ -7,7 +7,7 @@ export function $$(selector, context = document) {
 export let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
-  { url: 'resume/', title: 'Resume' },
+  { url: 'resume/', title: 'CV' },
   { url: 'contacts/', title: 'Contacts' },
   { url: 'https://github.com/roof37', title: 'GitHub' },
   { url: 'https://www.linkedin.com/in/ralph-halabi-47a6a6318/', title: 'LinkedIn' }

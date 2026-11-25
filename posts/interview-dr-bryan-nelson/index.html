@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Exclusive Interview with Dr. Bryan Nelson - Ralph Halabi</title>
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../scope.css">
+</head>
+<body>
+  <script>
+    const theme = sessionStorage.getItem('theme');
+    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if ((theme && theme === 'dark') || (!theme && match)) { document.body.classList.add('dark'); }
+  </script>
+  <div id="wrapper"><main>
+    <div id="site-header"></div>
+    <script src="../../site-header.js"></script>
+    <article class="prose post-article">
+      <p class="back"><a href="../" aria-label="All posts" title="All posts"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></a></p>
+      <h1>Exclusive Interview with Dr. Bryan Nelson</h1>
+      <div class="post-meta"><span class="post-date">February 2, 2024</span></div>
+<p>This week I had the opportunity to get in contact with Dr. Bryan Nelson, a statistics professor at the University of Pittsburgh who teaches sports analytics classes and sponsors the sports analytics club on campus. He has worked on numerous scientific research journals including a thesis on the statistics involved in the NCAA March Madness tournament: <em>Nelson, B. (2012). Modeling the NCAA Tournament through Bayesian logistic regression.</em> Dr. Nelson was able to answer my questions regarding statistics in the realm of sports and has assisted me greatly throughout this process.</p>
+<h2>What specific formulas do you use with various sports teams and their important data points?</h2>
+<p>When analyzing individual sports teams, it really depends on the sport. Even the more basic metrics can be very telling.</p>
+<p><strong>Baseball:</strong> OPS (on-base plus slugging) is actually a very good individual metric for understanding the quality of both a player and a team at the plate. For pitchers, FIP and xFIP both do an excellent job because they remove the defense from the equation. Both of these only look at events that are in the control of the pitcher (BB, K, and HR). For fielding, UZR is undoubtedly the best player metric.</p>
+<p><strong>Football:</strong> There are a lot of individual stats for each position, but QBR is the best for quarterbacks. That’s a value between 0 and 100 that effectively represents a winning percentage. It basically says, “Given this quarterback’s performance in this game, their QBR equates to this value, which simultaneously represents the probability that their team would win the game.”</p>
+<p>Point expectation models can be used by coaches for decision making on 4th down. Those combine the probability of picking up a field goal with the expected number of points at a given yardline. These can be compared against the probability of making a field goal times the value of a field goal (3 points), as well as the value of a punt (which would be the negative of your opponent’s point expectation wherever they get the ball).</p>
+<p><strong>Hockey:</strong> Corsi and Fenwick are really good proxies for team possession 5 vs. 5. Both of these look at shot attempts for and shot attempts against. Historically, teams with higher Corsi and Fenwick percentages have the puck more often and do better in the regular season. (Preventing your opponent from getting the puck is the best possible defense.)</p>
+<p><strong>Basketball:</strong> The four factors are commonly used to measure team success (effective field goal percentage, turnover pct, rebound pct, and free throw rate). Dean Oliver is the creator of these metrics and this idea. He’s currently working as a statistician with (I believe) the Wizards. That’s definitely a name to look into.</p>
+<p><strong>Sports Rating Systems:</strong> If the scoring in a league is approximately normal, then the Bradley-Terry model can be used to approximate team strength. A team’s rating is interpreted as the number of runs/points/goals better or worse than an average team in the league. If you go to any of the sports reference sites, you’ll see a column called SRS (simple rating system). That’s nothing more than a Bradley-Terry rating.</p>
+<p>In sports where scoring isn’t normal (hockey and soccer), Poisson scoring models are used to gauge how many goals a team would be expected to score on offense or allow on defense against an average team. This is definitely a more advanced model. Elo ratings are also commonly used to gauge team strength. Whereas Bradley-Terry and Poisson scoring models look at a team’s body of work during the season, Elo ratings are updated after every game with points added for a win and subtracted for a loss.</p>
+<h2>What statistics are involved when scouting a player and how does that process look?</h2>
+<p>I don’t know a whole lot about scouting to be honest. It’s not one of my interests, but I’ll attach a journal article for the NFL combine that you might be interested in that compares a lot of different combine tests across position. One of the things that some teams do now when deciding to sign a player is look at micro-stats.</p>
+<p>These are small little things that a player may do exceptionally well that the teams can exploit. For example, Jeff Carter for the Penguins was an excellent face-off guy last year, but struggled in other parts of the game. He would often be on the ice to take face-offs and then go immediately to the bench in high leverage situations to get a better player on in his place.</p>
+<h2>Are computer models used and how would they be used in this environment?</h2>
+<p>Computer models are used extensively. Every single professional sports team has an analytics department that fine tunes their models to find players that fit within the scheme of their goals. This mindset started with the Moneyball Oakland A’s in 2003, but didn’t really take off with many teams until the early 2010s. As you would expect though, these models are proprietary. No team is going to come out and directly release what their computer models look like to analyze players. That would be completely giving up any advantage they have over any other team.</p>
+<h2>How fast do you see statistics growing in sports?</h2>
+<p>Statistics is continuing to grow in sports. As we’ve seen, it’s already played a role in changing MLB. Because of the analytics, defenses used to put the shift on players who consistently pulled the ball. To combat this, MLB banned the shift this past year so that only two players could be on either side of second base when the pitch is thrown. This is in direct response to pull hitters complaining that the analytics were hurting their ability to get hits.</p>
+<p>Teams are going to continue to use statistics in every aspect of sports that they possibly can. I don’t see the leagues banning the use of statistics. At the end of the day, the players may not like it but the owners want to win. The owners are never going to call for banning new technology or new statistical methods that could give them an edge. However, it will probably get to the point where most teams in a league are doing very similar things.</p>
+<p>We’ll probably see periods of growth in the use of analytics and then periods of leveling off where not much progress is made. Then someone will come up with something revolutionary (like the Oakland A’s) and there will be another statistical movement. As players change, the analytics will change. Not so long ago, the NFL was more balanced in passing and rushing. Now, it’s very much a passing league with athletic, mobile quarterbacks.</p>
+<p>That could easily change with the next generation of college students coming up or new research into concussions. It’s entirely possible that 20 years from now, the NFL looks more like rugby because of the danger of the sport. The NBA could add a 4-point line, which would create an entirely new revolution in scoring in basketball. Long story short, analytics are here to stay, but there’s no predicting where it goes next. Statistics adapts to the sport, the sport responds, and then the analytics adjust again.</p>
+<h2>(1.) What are your thoughts on the advantages of having the technology at your disposal? AND (2.) Are you using the technology and methodology to the best of its ability, or do you think there's more potential for what it can do?</h2>
+<p>Personally, I'm a huge fan of having technology in sports. Managers and coaches can have different philosophies, but the numbers don’t lie. Sports are incredibly popular and fans want to see their teams win - it’s pretty simple. However, there’s also a huge increase in the popularity of analytics, statistics, and data science as a result of sports. While the analytics are helping teams do better, I would also argue that the sports continuing to allow analytics in is helping the fields of statistics and data science.</p>
+<p>I don’t care if an athlete is whining that the analytics make their jobs more difficult (like pull hitters in baseball). I’m of the opinion that if you’re really that great of an athlete, you should be able to adjust to the analytics. Those are truly the best players in the game - the ones who can introduce the most variability and unpredictability to the sport.</p>
+<h2>Your favorite sports teams (your personal favorites and teams showcasing statistical domination in categories such as possession and style of play)</h2>
+<p>As a native Pittsburgher, I’m a huge fan of all three Pittsburgh teams (Pirates, Steelers, and Penguins). Aside from those three, I’m a big fan of the Boston Red Sox. If I had to pick an NBA team, I would go with the Boston Celtics, but I don’t follow professional basketball too closely. For college sports, I obviously love the Pitt Panthers, but I’m a big fan of the Butler Bulldogs and Gonzaga Bulldogs in college basketball.</p>
+<p>From an analytical standpoint, I really appreciate good defensive basketball, so I like the Virginia Cavaliers the St. Mary’s Gaels. I appreciate what the Tampa Bay Rays do with their scouting and how they work their pitching staff and wish the Pirates would do that, but I’m not a fan (primarily because I’m a Red Sox fan.) I have a tough time picking other football or hockey teams to root for because I’m a devoted Pittsburgher, but I’d have to gravitate more towards NFL teams that play solid defense and high scoring NHL teams like Edmonton.</p>
+    </article>
+  </main></div>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) { toggle.addEventListener('click', () => { document.body.classList.toggle('dark'); sessionStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); }); }
+  </script>
+</body>
+</html>
