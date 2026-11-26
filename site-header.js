@@ -12,7 +12,7 @@
   }).join('\n          ');
   root.outerHTML = `
       <section id="info">
-        <div id="text"><a href="${base}" id="name">Raouf Ralph Halabi</a></div>
+        <div id="text"><a href="${base}" id="name">Ralph Halabi</a></div>
         <div id="bio">Lead Data Analyst for Penn State Men's Soccer<br>Biomechanics Research Assistant</div>
         <button id="theme-toggle" aria-label="theme switch">
             <span class="moon-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span>
@@ -83,16 +83,4 @@
     run();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
-})();
-
-// Theme: start from the system light/dark setting; a manual toggle overrides it for this tab session.
-// If the system setting changes while no manual choice exists, follow it live.
-(function () {
-  const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  const apply = () => {
-    if (sessionStorage.getItem('theme')) return;
-    document.body.classList.toggle('dark', mq.matches);
-  };
-  apply();
-  (mq.addEventListener ? mq.addEventListener.bind(mq, 'change') : mq.addListener.bind(mq))(apply);
 })();

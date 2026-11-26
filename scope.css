@@ -299,3 +299,7 @@ body.dark .resume-section{box-shadow:none}
 /* Home entries: position on its own line under the organization */
 .exp-head .title em{display:block;margin-top:2px}
 .resume-section .entry-body p.entry-blurb{margin:.65em 0 0;font-size:15px;line-height:1.65}
+
+/* Light by default: browser controls and scrollbars follow the site theme, not the system */
+:root{color-scheme:light}
+:root:has(body.dark){color-scheme:dark}

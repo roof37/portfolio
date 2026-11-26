@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <meta name="description" content="Raouf Ralph Halabi - Lead Data Analyst with Penn State Men's Soccer" />
   <title>Raouf Ralph Halabi</title>
   <link rel="stylesheet" href="style.css" />
@@ -11,17 +11,12 @@
 </head>
 <body>
 
-  <!-- Apply dark mode before paint to prevent flash -->
+  <!-- Light by default; apply dark before paint only if the visitor chose it -->
   <script>
     const theme = sessionStorage.getItem('theme');
-    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if ((theme && theme === 'dark') || (!theme && match)) {
+    if (theme === 'dark') {
       document.body.classList.add('dark');
     }
-    // Follow live system changes until the visitor picks a theme manually
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', e => {
-      if (!sessionStorage.getItem('theme')) document.body.classList.toggle('dark', e.matches);
-    });
   </script>
 
   <div id="wrapper">
@@ -32,7 +27,7 @@
            ============================ -->
       <section id="info">
         <div id="text">
-          <span id="name">Raouf Ralph Halabi</span>
+          <span id="name">Ralph Halabi</span>
         </div>
         <!-- <div id="bio">Data Scientist</div> -->
         <div id="bio">Lead Data Analyst for Penn State Men's Soccer<br>Biomechanics Research Assistant</div>
@@ -77,11 +72,11 @@
       <section id="brief" class="prose">
 
         <p>
-          Hey! My name is Raouf Halabi (I usually go by Ralph, since it's easier to pronounce). I enjoy putting things together, from reports, charts and statistics to models and machine learning, and presenting them so people can understand what's going on based on the trends. I'm currently working in sports analytics with Penn State Men's Soccer, and formerly with Penn State Men's Lacrosse. I'm also interested in other fields like medicine and finance.
+          What's good people! My name is Ralph Halabi. I enjoy piecing data together using models and databases and then formatting it in reports, charts or specific metrics. From there I love getting in front of people and presenting the findings as well as helping people understand what everything means. I'm currently working with Penn State Men's Soccer, and formerly with Penn State Men's Lacrosse, but I'm also interested in entering other markets like Health and Finance.
         </p>
         <!-- TODO: expand this intro with what you're looking for (internship, job, grad school). -->
         <p>
-          If you'd like to reach out, feel free to send an email or check out my socials!
+          If you'd like to reach out, feel free to shoot me an email or check out my socials!
         </p>
 
       </section>

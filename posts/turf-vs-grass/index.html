@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
+  <meta name="color-scheme" content="light" />
   <title>Turf vs. Grass: An Introduction - Ralph Halabi</title>
   <link rel="stylesheet" href="../../style.css" />
   <link rel="stylesheet" href="../../scope.css">
@@ -11,8 +11,7 @@
 <body>
   <script>
     const theme = sessionStorage.getItem('theme');
-    const match = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if ((theme && theme === 'dark') || (!theme && match)) { document.body.classList.add('dark'); }
+    if (theme === 'dark') { document.body.classList.add('dark'); }
   </script>
   <div id="wrapper"><main>
     <div id="site-header"></div>
